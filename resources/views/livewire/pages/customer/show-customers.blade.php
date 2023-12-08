@@ -18,6 +18,12 @@
                             <a href="{{ route('customers.create') }}" class="inline-flex items-center px-4 py-2 bg-gray-800 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-700 focus:bg-gray-700 active:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 transition ease-in-out duration-150">Add customer</a>
                         </div>
                     </div>
+                    <div class="sm:flex sm:items-center">
+                        <div class="sm:flex-auto">
+                            <x-input-label class="text-base font-semibold leading-6 text-gray-900" for="company_name" :value="__('Company name')" />
+                            <x-text-input id="company_name" name="company_name" type="text" class="mt-1 block w-full" required autofocus autocomplete="company" placeholder="Search for company name" wire:model.lazy="companyName" />
+                        </div>
+                    </div>
                     <div class="mt-8 flow-root">
                         <div class="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
                             <div class="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">

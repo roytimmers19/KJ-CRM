@@ -8,12 +8,32 @@ use Livewire\Component;
 
 class ShowCustomers extends Component
 {
+
+    public $customers;
+    public $companyName;
+
     public function render()
     {
-        return view('livewire.pages.customer.show-customers', [
-            'customers' => Auth::user()->customers,
+        $this->getCustomers();
+        return view('livewire.pages.customer.show-customers')->layout('layouts.app');
+    }
 
-        ])->layout('layouts.app');
+    public function updatedCompanyName()
+    {
+        $this->getCustomers();
+    }
+
+
+    public function getCustomers()
+    {
+        if ($this->companyName > '') {
+            $this->customers = Auth::user()
+                ->customers
+                ->where('company_name', 'like', $this->companyName);
+        } else {
+            $this->customers = Auth::user()
+                ->customers;
+        }
     }
 
     public function delete(Customer $customer)
