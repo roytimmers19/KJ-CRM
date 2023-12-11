@@ -2,6 +2,7 @@
 
 use App\Livewire\CreateCustomer;
 use App\Livewire\EditCustomer;
+use App\Livewire\ShowContacts;
 use App\Livewire\ShowCustomers;
 use Illuminate\Support\Facades\Route;
 
@@ -37,5 +38,9 @@ Route::get('/customers/create', CreateCustomer::class)
 Route::get('/customers/edit/{customer}', EditCustomer::class)
     ->middleware(['auth', 'verified'])
     ->name('customers.edit');
-    
+
+Route::get('/contacts', ShowContacts::class)
+    ->middleware(['auth', 'verified'])
+    ->name('contacts');
+
 require __DIR__ . '/auth.php';

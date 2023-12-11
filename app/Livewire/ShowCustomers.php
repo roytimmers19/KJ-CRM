@@ -10,7 +10,7 @@ class ShowCustomers extends Component
 {
 
     public $customers;
-    public $companyName;
+    public $company_name;
 
     public function render()
     {
@@ -18,26 +18,22 @@ class ShowCustomers extends Component
         return view('livewire.pages.customer.show-customers')->layout('layouts.app');
     }
 
-    public function updatedCompanyName()
-    {
-        $this->getCustomers();
-    }
-
-
     public function getCustomers()
     {
-        if ($this->companyName > '') {
-            $this->customers = Auth::user()
-                ->customers
-                ->where('company_name', 'like', $this->companyName);
+        if ($this->company_name > '') {
+            $this->customers = Customer::where('company_name', 'like', '%' . $this->company_name . "%")->get();
         } else {
-            $this->customers = Auth::user()
-                ->customers;
+            $this->customers = Customer::all();
         }
     }
 
     public function delete(Customer $customer)
     {
         $customer->delete();
+    }
+
+    public function edit(Customer $customer)
+    {
+        return redirect()->to('/customers/edit/'. $customer->id);
     }
 }
