@@ -10,7 +10,7 @@
             <div class="p-6 text-gray-900">
                 <header>
                     <h2 class="text-lg font-medium text-gray-900">
-                        {{ __('Create |Customer') }}
+                        {{ __('Create customer') }}
                     </h2>
 
                     <p class="mt-1 text-sm text-gray-600">

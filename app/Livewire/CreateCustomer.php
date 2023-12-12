@@ -2,9 +2,11 @@
 
 namespace App\Livewire;
 
+use App\Models\Customer;
 use Illuminate\Support\Facades\Auth;
 use Livewire\Attributes\Rule;
 use Livewire\Component;
+use Livewire\Volt\Compilers\Mount;
 
 class CreateCustomer extends Component
 {
@@ -25,7 +27,7 @@ class CreateCustomer extends Component
     
     #[Rule('required')]
     public $emailaddress;
-
+    
     public function save()
     {
         $this->validate();

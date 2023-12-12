@@ -1,6 +1,8 @@
 <?php
 
+use App\Livewire\CreateContact;
 use App\Livewire\CreateCustomer;
+use App\Livewire\EditContact;
 use App\Livewire\EditCustomer;
 use App\Livewire\ShowContacts;
 use App\Livewire\ShowCustomers;
@@ -42,5 +44,13 @@ Route::get('/customers/edit/{customer}', EditCustomer::class)
 Route::get('/contacts', ShowContacts::class)
     ->middleware(['auth', 'verified'])
     ->name('contacts');
+
+Route::get('/contacts/create{customer}', CreateContact::class)
+    ->middleware(['auth', 'verified'])
+    ->name('contacts.create');
+
+Route::get('/contacts/edit/{contact}', EditContact::class)
+    ->middleware(['auth', 'verified'])
+    ->name('contacts.edit');
 
 require __DIR__ . '/auth.php';

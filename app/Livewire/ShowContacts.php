@@ -8,6 +8,7 @@ use Livewire\Component;
 
 class ShowContacts extends Component
 {
+    public $contacts;
     public Customer $customer;
 
     public function mount($customer)
@@ -17,10 +18,18 @@ class ShowContacts extends Component
 
     public function render()
     {
-        return view('livewire.pages.contact.show-contacts', [
-            'contacts' => $this->customer->contacts(),
+        $this->contacts = $this->customer->contacts()->get();
 
-        ])->layout('layouts.app');
+        return view('livewire.pages.contact.show-contacts')->layout('layouts.app');
     }
 
+    public function delete(Contact $contact)
+    {
+        $contact->delete();
+    }
+
+    public function edit(Contact $contact)
+    {
+        return redirect()->to('/contacts/edit/' . $contact->id);
+    }
 }

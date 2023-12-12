@@ -27,11 +27,6 @@ class ShowCustomers extends Component
         }
     }
 
-    public function delete(Customer $customer)
-    {
-        $customer->delete();
-    }
-
     public function edit(Customer $customer)
     {
         return redirect()->to('/customers/edit/'. $customer->id);

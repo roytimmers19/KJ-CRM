@@ -54,6 +54,11 @@ class EditCustomer extends Component
 
         return redirect()->to('/customers');
     }
+    public function delete(Customer $customer)
+    {
+        $customer->delete();        
+        return redirect()->to('/customers');
+    }
 
     public function render()
     {

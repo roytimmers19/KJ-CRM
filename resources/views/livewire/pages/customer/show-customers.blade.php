@@ -13,8 +13,8 @@
                 <div class="px-4 sm:px-6 lg:px-8">
                     <div class="sm:flex sm:items-center">
                         <div class="sm:flex-auto">
-                            <x-input-label class="text-base font-semibold leading-6 text-gray-900" for="company_name"
-                                :value="__('Company name')" />
+                            {{-- <x-input-label class="text-base font-semibold leading-6 text-gray-900" for="company_name"
+                                :value="__('Company name')" /> --}}
                             <x-text-input wire:model="company_name" id="company_name" name="company_name" type="text"
                                 class="mt-1 block w-full" required autofocus autocomplete="company"
                                 placeholder="Search for company name" wire:change="getCustomers()" />
@@ -52,13 +52,6 @@
                                             <th scope="col"
                                                 class="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">Email
                                                 Address</th>
-
-                                            <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
-                                                <span class="sr-only">Edit</span>
-                                            </th>
-                                            <th scope="col" class="relative py-3.5 pl-3 pr-4 sm:pr-0">
-                                                <span class="sr-only">Delete</span>
-                                            </th>
                                         </tr>
                                     </thead>
                                     <tbody class="divide-y divide-gray-200">
@@ -78,18 +71,6 @@
                                                 </td>
                                                 <td class=" px-3 py-4 text-sm text-gray-500">
                                                     {{ $customer->emailaddress }}</td>
-
-                                                <td
-                                                    class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                                                    <a href="#" wire:click="edit({{ $customer->id }})"
-                                                        class="inline-flex items-center px-4 py-2 bg-white border border-gray-300 rounded-md font-semibold text-xs text-gray-700 uppercase tracking-widest shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 disabled:opacity-25 transition ease-in-out duration-150">Edit<span
-                                                            class="sr-only"></span></a>
-                                                </td>
-                                                <td
-                                                    class="relative whitespace-nowrap py-4 pl-3 pr-4 text-right text-sm font-medium sm:pr-0">
-                                                    <a href="#" wire:click="delete({{ $customer->id }})"
-                                                        class="inline-flex items-center px-4 py-2 bg-red-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-red-500 active:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 transition ease-in-out duration-150">Delete</a>
-                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
