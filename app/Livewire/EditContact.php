@@ -8,7 +8,6 @@ use Livewire\Component;
 
 class EditContact extends Component
 {
-
     public Contact $contact;
 
     #[Rule('required')]
@@ -43,14 +42,15 @@ class EditContact extends Component
             $this->all()
         );
 
-        return redirect()->to('/customers/edit/' . $this->contact->customer_id);
+        return redirect()->to('/customers/edit/'.$this->contact->customer_id);
     }
 
     public function delete(Contact $contact)
     {
         $customer_id = $this->contact->customer_id;
         $contact->delete();
-        return redirect()->to('/customers/edit/' . $customer_id);
+
+        return redirect()->to('/customers/edit/'.$customer_id);
     }
 
     public function render()

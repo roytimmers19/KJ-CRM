@@ -19,10 +19,10 @@ class CustomerFactory extends Factory
         return [
             'company_name' => fake()->company,
             'address' => fake()->address(),
-            'postal_code' => fake()->postcode, 
-            'place' => fake()->city, 
-            'telephone' => fake()->phoneNumber, 
-            'emailaddress' => fake()->email
+            'postal_code' => fake()->postcode,
+            'place' => fake()->city,
+            'telephone' => fake()->phoneNumber,
+            'emailaddress' => fake()->email,
         ];
     }
 }

@@ -3,25 +3,25 @@
 namespace App\Livewire;
 
 use App\Models\Customer;
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
 
 class ShowCustomers extends Component
 {
-
     public $customers;
+
     public $company_name;
 
     public function render()
     {
         $this->getCustomers();
+
         return view('livewire.pages.customer.show-customers')->layout('layouts.app');
     }
 
     public function getCustomers()
     {
         if ($this->company_name > '') {
-            $this->customers = Customer::where('company_name', 'like', '%' . $this->company_name . "%")->get();
+            $this->customers = Customer::where('company_name', 'like', '%'.$this->company_name.'%')->get();
         } else {
             $this->customers = Customer::all();
         }
@@ -29,6 +29,6 @@ class ShowCustomers extends Component
 
     public function edit(Customer $customer)
     {
-        return redirect()->to('/customers/edit/'. $customer->id);
+        return redirect()->to('/customers/edit/'.$customer->id);
     }
 }

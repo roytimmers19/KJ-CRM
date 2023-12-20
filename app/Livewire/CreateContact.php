@@ -26,14 +26,16 @@ class CreateContact extends Component
     {
         $this->customer = $customer;
     }
+
     public function save()
     {
         $this->customer->contacts()->create(
             $this->only(['first_name', 'last_name', 'telephone', 'emailaddress'])
         );
 
-        return redirect()->to('/customers/edit/' . $this->customer->id);
+        return redirect()->to('/customers/edit/'.$this->customer->id);
     }
+
     public function render()
     {
         return view('livewire.pages.contact.create-contact')->layout('layouts.app');

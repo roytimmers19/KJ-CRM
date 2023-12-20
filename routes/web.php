@@ -53,4 +53,4 @@ Route::get('/contacts/edit/{contact}', EditContact::class)
     ->middleware(['auth', 'verified'])
     ->name('contacts.edit');
 
-require __DIR__ . '/auth.php';
+require __DIR__.'/auth.php';

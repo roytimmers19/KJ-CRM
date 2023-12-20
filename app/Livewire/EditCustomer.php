@@ -30,7 +30,7 @@ class EditCustomer extends Component
 
     public function mount(Customer $customer)
     {
-        
+
         $this->customer = $customer;
 
         $this->company_name = $customer->company_name;
@@ -54,9 +54,11 @@ class EditCustomer extends Component
 
         return redirect()->to('/customers');
     }
+
     public function delete(Customer $customer)
     {
-        $customer->delete();        
+        $customer->delete();
+
         return redirect()->to('/customers');
     }
 

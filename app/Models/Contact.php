@@ -11,6 +11,7 @@ class Contact extends Model
     use HasFactory;
 
     protected $table = 'contacts';
+
     protected $fillable = ['first_name', 'last_name', 'telephone', 'emailaddress', 'customer_id'];
 
     public function customer(): BelongsTo

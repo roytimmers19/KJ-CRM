@@ -17,7 +17,7 @@ class Customer extends Model
         'place',
         'telephone',
         'emailaddress',
-        'user_id'
+        'user_id',
     ];
 
     public function contacts(): HasMany

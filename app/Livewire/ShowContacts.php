@@ -9,6 +9,7 @@ use Livewire\Component;
 class ShowContacts extends Component
 {
     public $contacts;
+
     public Customer $customer;
 
     public function mount($customer)
@@ -30,6 +31,6 @@ class ShowContacts extends Component
 
     public function edit(Contact $contact)
     {
-        return redirect()->to('/contacts/edit/' . $contact->id);
+        return redirect()->to('/contacts/edit/'.$contact->id);
     }
 }
